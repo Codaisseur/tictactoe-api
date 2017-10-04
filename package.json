@@ -22,10 +22,13 @@
     "yarn": ">= 0.18.0"
   },
   "scripts": {
+    "dev": "nodemon --inspect src/",
     "test": "npm run eslint && npm run mocha",
+    "test:watch": "npm run eslint && npm run mocha:watch",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
     "start": "node src/",
-    "mocha": "mocha test/ --recursive"
+    "mocha": "mocha test/ --recursive",
+    "mocha:watch": "mocha --watch test/ --recursive"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -51,6 +54,7 @@
   "devDependencies": {
     "eslint": "^4.8.0",
     "mocha": "^4.0.0",
+    "nodemon": "^1.12.1",
     "request": "^2.83.0",
     "request-promise": "^4.2.2"
   }

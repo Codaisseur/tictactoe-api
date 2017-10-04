@@ -13,7 +13,7 @@ describe('\'games\' modelClass', () => {
     game.setup(user);
 
     it('creates the title for the game', () => {
-      assert(game.title, 'User Name\'s Game');
+      assert.equal(game.title, 'User Name\'s Game');
     });
 
     it('adds the user to the playerIds of the game', () => {
@@ -21,7 +21,7 @@ describe('\'games\' modelClass', () => {
     });
 
     it('sets up 1 initial player for the game', () => {
-      assert(game.playerIds.length, 1);
+      assert.equal(game.playerIds.length, 1);
     });
   });
 });
