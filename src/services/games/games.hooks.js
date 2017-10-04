@@ -15,14 +15,16 @@ const fixPlayerArray = require('../../hooks/fix-player-array');
 
 const isGameJoinable = require('../../hooks/is-game-joinable');
 
+const updateGame = require('../../hooks/update-game');
+
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
     find: [],
     get: [],
     create: [createGame()],
-    update: [],
-    patch: [],
+    update: [updateGame()],
+    patch: [updateGame()],
     remove: []
   },
 
