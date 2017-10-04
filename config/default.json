@@ -5,5 +5,30 @@
   "paginate": {
     "default": 10,
     "max": 50
-  }
+  },
+  "authentication": {
+    "secret": "6cf2bd72f34fb5a13fa932522f34fb4554e99d4205862dca8d725c045a1600119ecced23c8740e5f444c5be17df12b0261b564ee9c7974a24f389d5bc2263e1b5a0fe84a9d3df5250e90418057eb69f39c2a7bd2274866558340cedef49c9802e2c0a424e80db13f5fb0988db3568a6bb8734b20603768a1fa1213a782131fc730b983846a3fdc1af23ac7689e275b838f66d9c8e87923a4f6e848349d28e66d883d90fdc951243478676592465ca26f527045a195eb8d24139bb36d8e79d9428519ec20dbac0e96ffc0798425d2867155735a1b73e0f5246674316393b4c200da0e1d70ac98589be38d33ffc9f5bb35a90582921d66ec27e4568df94bbabcb0",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "type": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  },
+  "mongodb": "mongodb://localhost:27017/tictactoe_api"
 }
