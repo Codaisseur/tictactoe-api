@@ -13,6 +13,8 @@ const playersSchema = {
 
 const fixPlayerArray = require('../../hooks/fix-player-array');
 
+const isGameJoinable = require('../../hooks/is-game-joinable');
+
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
@@ -25,7 +27,7 @@ module.exports = {
   },
 
   after: {
-    all: [populate({ schema: playersSchema }), fixPlayerArray()],
+    all: [populate({ schema: playersSchema }), fixPlayerArray(), isGameJoinable()],
     find: [],
     get: [],
     create: [],
