@@ -12,13 +12,13 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
     if (hook.method === 'find') {
       hook.result.data = hook.result.data.map((game) => (
         Object.assign(game, {
-          isJoinable: game.playerIds.length < 2 &&
+          isJoinable: !hook.params.user ? false : game.playerIds.length < 2 &&
             !game.playerIds.map(comparableObjectId)
               .includes(comparableObjectId(hook.params.user._id))
         })
       ));
     } else {
-      hook.result.isJoinable = hook.result.playerIds.length < 2 &&
+      hook.result.isJoinable = !hook.params.user ? false : hook.result.playerIds.length < 2 &&
         !hook.result.playerIds.map(comparableObjectId)
           .includes(comparableObjectId(hook.params.user._id));
     }

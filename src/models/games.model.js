@@ -10,6 +10,8 @@ module.exports = function (app) {
     title: { type: String, required: true },
     squares: [String],
     playerIds: [{ type: Schema.Types.ObjectId, ref: 'users' }],
+    playerSymbols: [String], // find by their player index (or turn)
+    turn: { type: Number, default: 0 }, // player index
     started: { type: Boolean, default: false },
     winnerId: { type: Schema.Types.ObjectId, ref: 'users' },
     draw: { type: Boolean },

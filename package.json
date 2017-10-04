@@ -22,6 +22,7 @@
     "yarn": ">= 0.18.0"
   },
   "scripts": {
+    "seed": "node src/seeds.js",
     "dev": "nodemon --inspect src/",
     "test": "npm run eslint && npm run mocha",
     "test:watch": "npm run eslint && npm run mocha:watch",
@@ -53,9 +54,11 @@
   },
   "devDependencies": {
     "eslint": "^4.8.0",
+    "feathers-authentication-client": "^0.3.3",
     "mocha": "^4.0.0",
     "nodemon": "^1.12.1",
     "request": "^2.83.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "superagent": "^3.6.3"
   }
 }
